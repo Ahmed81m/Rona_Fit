@@ -33,6 +33,23 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      # Next.js static export should copy /public assets to /out.
+      # Re-copy the image directories to make the deployed artifact explicit.
+      - name: Ensure images are included in static export
+        run: |
+          mkdir -p out/images/services out/images/testimonials
+          cp -a public/images/services/. out/images/services/
+          cp -a public/images/testimonials/. out/images/testimonials/
+          test -f out/images/services/home-workouts.jpg
+          test -f out/images/services/gym-workouts.jpg
+          test -f out/images/services/nutrition.jpg
+          test -f out/images/services/coaching.jpg
+          for i in $(seq -w 1 11); do
+            test -s "out/images/testimonials/review-${i}.jpg"
+          done
+          test -f out/.nojekyll || touch out/.nojekyll
+          echo "Verified all four service images and eleven testimonials in out/."
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
