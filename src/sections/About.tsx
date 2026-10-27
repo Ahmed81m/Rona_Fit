@@ -22,9 +22,9 @@ export default function About() {
           <div className="mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-4xl border border-white/10 bg-plum-800">
             {/* Replace public/images/brand/coach.jpg with a real coach photo */}
             <img
-              src={assetPath("/images/brand/coach.jpg")}
+             src={assetPath("/images/rona-about.png")}
               alt="كابتن روان"
-              className="h-full w-full object-cover"
+             className="h-full w-full object-contain"
             />
           </div>
         </div>

@@ -29,9 +29,9 @@ export default function Hero() {
           <div className="mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-4xl border border-white/60 bg-plum-200 shadow-xl shadow-plum-900/10">
             {/* Replace public/images/hero/hero.jpg with a real coach photo */}
             <img
-              src={assetPath("/images/hero/hero.jpg")}
+              src={assetPath("/images/rona-hero.png")}
               alt="كابتن روان أثناء تدريب إحدى العميلات"
-              className="h-full w-full object-cover"
+             className="h-full w-full object-contain"
             />
           </div>
         </div>
